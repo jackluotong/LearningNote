@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>This is my first test demo</title>
+  <link rel="stylesheet" href="index.css">
+  </link>
+  <!--加载css样式-->
+
+  <script type="text/javascript" src="06-18.js"></script>
+  <!--加载js-->
+</head>
+
+<body>
+  <div id="container"></div>
+  <div id="vertical">
+    <p> i am vertical in the center</p>
+  </div>
+  <div id="vertical1">
+    <p> i am vertical in the center</p>
+  </div>
+  <div class="triangle"></div>
+
+  <div class="header"></div>
+  <div class="main">
+
+    <div class="left"></div>
+    <div class="right"></div>
+    <input type="button" value="星期一">
+    <input type="button" value="星期二">
+    <input type="button" value="星期三">
+
+    <div class="test001">
+      <ul id="todo-app">
+        <li class="item">Walk the dog</li>
+        <li class="item">Pay bills</li>
+        <li class="item">Make dinner</li>
+        <li class="item">Code for one hour</li>
+      </ul>
+      <ul id="list">
+
+      </ul>
+
+    </div>
+    <div class="test002">
+      <div class="left1"></div>
+      <div class="right2"></div>
+    </div>
+    <div id="app">
+      <input type="text" id="text">
+      <p id="show-text"></p>
+    </div>
+
+  </div>
+  <script>
+    window.onload = function() {
+      function fun1() {
+        var aBtn = document.getElementsByTagName('input')
+        for (let i = 0; i < aBtn.length; i++) {
+          (function(i) {
+            aBtn[i].onclick = function() {
+              alert('今天是星期' + i);
+            };
+          })(i)
+        }
+      }
+      fun1()
+
+      function fun2() {
+        console.log('you are a man.');
+      }
+      fun2()
+    }
+  </script>
+  <script>
+    //实现vue
+    var obj = {}
+    Object.defineProperty(obj, 'text', {
+      get: function() {
+        return obj
+      },
+      set: function(newValue) {
+        document.getElementById('text').value = newValue
+        document.getElementById('show-text').innerHTML = newValue;
+      }
+    })
+    document.addEventListener('keyup', function(e) {
+      obj.text = e.target.value
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta>
+  </meta>
+  <title>Test</title>
+
+</head>
+
+<body>
+  <div id="div01">
+    <p id="01">one</p>
+    <p>two</p>
+    <p>three</p>
+    <p>four</p>
+    <input type="text" placeholder="Input content please." id="input01">
+    <input type="button" onclick="add(content)" value="Add">
+    <input type="Button" onclick="change()" value="Change">
+    <input type="button" id="text" value="Click">
+  </div>
+  <script>
+    var get = document.getElementById('01');
+    console.log(get.innerText);
+
+
+    var input = document.getElementById('input01');
+    var content = input.innerHTML;
+
+    function add(str) {
+      document.getElementById('01').style.color = 'blue';
+      var para = document.createElement('p'); //创建标签
+      var node = document.createTextNode(str); //创建节点
+      para.appendChild(node); //标签后插入节点
+      var element = document.getElementById('div01'); //找到父节点
+      element.appendChild(para); //在父节点后插入
+      change();
+    }
+
+    //add('now node change')
+
+    function change() {
+      var a = document.getElementsByTagName('p')
+
+      for (var i = 0; i < a.length; i++) {
+        if (i % 2 == 0) {
+          a[i].style.background = '#ccc'
+          a[i].style.borderRadius = '43'
+        } else {
+          a[i].style.background = 'yellow'
+        }
+      }
+    }
+    // change();
+    //foreach
+    function arr1(arr) {
+      arr.forEach(function(val, index, arr) {
+        console.log(val + ',index=' + index);
+        // console.log(arr);
+      })
+    }
+    arr1(['a', 'b', 'c', 'd'])
+    //for in  找到键 和 值
+    let obj = [1, 2, 3, 1, '1']
+    for (let o in obj) {
+      console.log(o);
+      console.log(o + 'index' + obj[o]);
+    }
+    //找值
+    //for of用来找到键值对中的值
+    let arr2 = ['china', 'german', 'italy', 'england', 'french', 'spanish', 'china']
+    for (let o of arr2) {
+      console.log(o);
+    }
+    console.log([...new Set(arr2)]);
+
+    //
+    const text = document.getElementById('text');
+    text.onclick = function(e) {
+      console.log('onclick');
+    }
+    text.onfocus = function(e) {
+      console.log('onfocus');
+
+    }
+    text.onmousedown = function(e) {
+      console.log('onmousedown');
+
+    }
+
+    text.onmouseenter = function(e) {
+      console.log('onmouseenter');
+
+    }
+  </script>
+</body>
+
+</html>

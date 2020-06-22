@@ -46,11 +46,15 @@
       <div class="left1"></div>
       <div class="right2"></div>
     </div>
-    <div id="app">
-      <input type="text" id="text">
-      <p id="show-text"></p>
-    </div>
+  </div>
+  <div id="app">
+    <input type="text" id="text">
+    <p id="show-text"></p>
+    <!--
 
+      <video src="https://www.bilibili.com/video/BV1hz411i7kA/">视频</video>
+
+-->
   </div>
   <script>
     window.onload = function() {
@@ -87,6 +91,64 @@
     document.addEventListener('keyup', function(e) {
       obj.text = e.target.value
     })
+  </script>
+  <script>
+    //显示转换
+    var a = '42';
+    var b = Number(a);
+    a;
+    b;
+    console.log(a, b);
+    //隐式转换
+    var d = '43';
+    var e = d * 1;
+    console.log(e, d);
+
+    var o = 21;
+    var p = '21'
+    o === p
+
+    //
+    console.log(typeof(null) + '...' + typeof(undefined));
+
+    //继承
+    // function parent() {
+    //   this.name = 'parents';
+    //   this.play = [1, 2, 3, 4];
+
+    // }
+
+    // function child() {
+    //   parent.call(this);
+    //   this.type = 'child';
+    // }
+    // child.prototype = Object.create(parent, prototype);
+    // child.prototype.constructor = child;
+
+    let nums = [1, 2, 3];
+    let obj = {
+      val: 5
+    };
+    let newNums = nums.map(function(item, index, array) {
+      return item + index + array[index] + this.val;
+      //对第一个元素，1 + 0 + 1 + 5 = 7
+      //对第二个元素，2 + 1 + 2 + 5 = 10
+      //对第三个元素，3 + 2 + 3 + 5 = 13
+    }, obj);
+    console.log(newNums); //[7, 10, 13]
+
+    //
+    let obj1 = {
+      a: function() {
+        console.log(this);
+      },
+      b: function() {
+        alert('封装')
+      }
+    } //方法封装在对象中
+    let fun = obj1.a;
+    obj1.b();
+    fun();
   </script>
 </body>
 
